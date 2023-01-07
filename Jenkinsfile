@@ -5,10 +5,14 @@ pipeline {
 
     stages {
         stage('Load') {
-            code = load 'tests.groovy'                       
+            steps {
+                code = load 'tests.groovy'
+            }
         }
         stage('Run') {
-            code.bashtest()
+            steps {
+                code.bashtest()
+            }
         }
     }
 }
