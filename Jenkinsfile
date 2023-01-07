@@ -1,22 +1,21 @@
+ /* Function for determining the connection to a specific port */
+private static boolean checkOpenPort(String ipAddr, int openPort, int timeOutMillis) {
+    // openPort =  22 - ssh, 80 or 443 - webserver, 25 - mailserver etc.
+    try {
+        Socket soc = new Socket()
+        soc.connect(new InetSocketAddress(ipAddr, openPort), timeOutMillis);
+        return true;
+    }
+    catch (IOException e) {
+        return false;
+    }
+}
 pipeline {
     agent any
 
     stages {
         stage('Test') {
-            /* Function for determining the connection to a specific port */
-
-            private static boolean checkOpenPort(String ipAddr, int openPort, int timeOutMillis) {
-                // openPort =  22 - ssh, 80 or 443 - webserver, 25 - mailserver etc.
-                try {
-                    Socket soc = new Socket()
-                    soc.connect(new InetSocketAddress(ipAddr, openPort), timeOutMillis);
-                    return true;
-                }
-                catch (IOException e) {
-                    return false;
-                }
-            }
-
+           
             def file = new File('input.csv')
             def header = file.readLines()[0]
             header = header + ',IP reachable,Hostname Registered,SSH Enabled\n'
