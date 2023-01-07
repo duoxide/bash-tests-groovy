@@ -7,12 +7,11 @@ pipeline {
 
             private static boolean checkOpenPort(String ipAddr, int openPort, int timeOutMillis) {
                 // openPort =  22 - ssh, 80 or 443 - webserver, 25 - mailserver etc.
-                try {
-                    try (Socket soc = new Socket()) {
-                        soc.connect(new InetSocketAddress(ipAddr, openPort), timeOutMillis);
-                    }
+                try (Socket soc = new Socket()) {
+                    soc.connect(new InetSocketAddress(ipAddr, openPort), timeOutMillis);
                     return true;
-                } catch (IOException e) {
+                }
+                catch (IOException e) {
                     return false;
                 }
             }
@@ -54,7 +53,7 @@ pipeline {
                 newfile.append("${result}\n")
 
                 i++
-            }            
+            }                        
         }
     }
 }
