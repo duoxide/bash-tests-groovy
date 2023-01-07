@@ -15,10 +15,10 @@ private static boolean checkOpenPort(String ipAddr, int openPort, int timeOutMil
 @NonCPS
 def bashtest() {
 
-    def file = new File('input.csv')
+    def file = new File('./bash-tests_master/input.csv')
     def header = file.readLines()[0]
     header = header + ',IP reachable,Hostname Registered,SSH Enabled\n'
-    def newfile = new File('output.csv')
+    def newfile = new File('./bash-tests_master/output.csv')
     newfile.write(header)
     def rows = file.readLines().tail()*.split(',')
     int total = rows.size()
