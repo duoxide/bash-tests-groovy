@@ -12,6 +12,7 @@ private static boolean checkOpenPort(String ipAddr, int openPort, int timeOutMil
     }
 }
 
+@NonCPS
 def bashtest() {
 
     def file = new File('input.csv')
