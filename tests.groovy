@@ -47,5 +47,5 @@ def bashtest() {
         newfile.append("${result}\n")
     }
 }
-bashtest()
+// bashtest()
 return this
