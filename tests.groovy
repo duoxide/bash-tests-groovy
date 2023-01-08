@@ -27,7 +27,7 @@ def bashtest() {
 
         /* Check if PINGable */
 
-        def checkping = "ping -c2 ${ip}".execute()
+        def checkping = "/usr/bin/ping -c2 ${ip}".execute()
         checkping.waitFor()
         line = checkping.exitValue() == 0 ? line + ',YES' : line + ',NO'
 
