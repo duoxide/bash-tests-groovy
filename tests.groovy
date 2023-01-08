@@ -13,8 +13,8 @@ def checkOpenPort(String ipAddr, int openPort, int timeOutMillis) {
 }
 
 def bashtest() {
-    def file = new File('/var/jenkins_home/workspace/bash-tests_master/input.csv')
-    def newfile = new File('/var/jenkins_home/workspace/bash-tests_master/output.csv')
+    def file = new File("${WORKSPACE}/input.csv")
+    def newfile = new File("${WORKSPACE}/output.csv")
     def rows = file.readLines()
     rows.eachWithIndex { String line, int index ->
         if ( index == 0 ) {
